@@ -14,7 +14,7 @@ var app = express();
 //app.set('views', path.join(__dirname, 'views'));
 
 // register engine with .hbs name (expressHbs() starts the engine).
-app.engine('.hbs', expressHbs({defaultLayout: 'layouts', extname: '.hbs'}));
+app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 // uncomment after placing your favicon in /public
