@@ -45,8 +45,18 @@ new Product({
     price: 1000
 })
 ]
-
+var done = 0;
 for (let i = 0; i < products.length; i++) {
-    products[i].save();
+    products[i].save(function(err, result){
+        done++;
+        if(done === products.length){
+            exit();
+        }
+    });
     
 }
+
+function exit(){
+    mongoose.disconnect();
+}
+

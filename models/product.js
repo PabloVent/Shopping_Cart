@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var schema = new Schema({
-    imagePath: {type:string, required:true},
-    title: {type:string, required:true},
-    description: {type:string, required:true},
+    imagePath: {type:String, required:true},
+    title: {type:String, required:true},
+    description: {type:String, required:true},
     price: {type:Number, required:true}
 })
 
-model.exports = mongoose.model('Product', schema); // To use blueprint in my models.
+module.exports = mongoose.model('Product', schema); // To use blueprint in my models.
