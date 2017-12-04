@@ -4,6 +4,7 @@ var Product = require('../models/product');
 var csrf = require('csurf');
 
 var csrfProtection = csrf();
+router.use(csrfProtection);
 
 /* GET home page. Loop over docs churned out from DB */
 router.get('/', function(req, res, next) {
