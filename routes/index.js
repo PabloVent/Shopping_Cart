@@ -5,7 +5,7 @@ var csrf = require('csurf');
 
 var csrfProtection = csrf();
 
-/* GET home page. */
+/* GET home page. Loop over docs churned out from DB */
 router.get('/', function(req, res, next) {
   Product.find(function(err, docs){
     var productChuncks = [];
