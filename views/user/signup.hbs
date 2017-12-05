@@ -10,8 +10,8 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" class="form-control">
             </div>
-            <button type="submit">Sign Up</button>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>
-        {{csrfToken}}
     </div>
 </div>
