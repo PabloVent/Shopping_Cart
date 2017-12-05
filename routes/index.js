@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   
 });
 
-router.get('user/signup', function(req,res,next){
+router.get('/user/signup', function(req, res, next){
   res.render('user/signup', {csrfToken: req.csrfToken()});
 });
 

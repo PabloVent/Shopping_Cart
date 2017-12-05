@@ -7,10 +7,10 @@ var bodyParser = require('body-parser');
 var expressHbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
-var index = require('./routes/index');
+var routes = require('./routes/index');
 
 var app = express();
+//var userRoutes = require('./routes/user');
 
 mongoose.connect('localhost:27017/shopping');
 // view engine setup
@@ -26,10 +26,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: 'mysupersecret', resave: false,saveUninitialized: false}));
+app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
