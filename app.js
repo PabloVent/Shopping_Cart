@@ -15,6 +15,7 @@ var app = express();
 //var userRoutes = require('./routes/user');
 
 mongoose.connect('localhost:27017/shopping');
+require('./config/passport');
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 
