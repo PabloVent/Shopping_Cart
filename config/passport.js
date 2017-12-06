@@ -18,7 +18,14 @@ passport.use('local.signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
     passwordField: true
-}, function() {
-
+}, function(req, email, password, done) {
+    User.findOne({'email': email}, function(err, user){
+        if(err){
+            return done(err);
+        }
+        if(user){
+            return(done(null, false, {message: 'Email is already in use'})); // No errors(null), but search not successful (false); password already in use.
+        }
+    });
 }));
 
