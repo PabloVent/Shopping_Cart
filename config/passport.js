@@ -11,3 +11,14 @@ passport.deserializeUser(function(id, done){
         done(err, user);
     })
 })
+
+// Create users. New middleware.
+
+passport.use('local.signup', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passwordField: true
+}, function() {
+
+}));
+
