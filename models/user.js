@@ -16,6 +16,7 @@ userSchema.methods.encryptPassword = function(password){
 }
 
 // Check if the password matches the hatched password.
-
+userSchema.methods.validPassword = function(password){
+    return bcrypt.compareSync(password, this.password);// 'this' corresponds to the current user's password, (line 7).
 
 module.exports = mongoose.model('User', userSchema);
