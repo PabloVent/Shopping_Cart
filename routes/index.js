@@ -25,8 +25,8 @@ router.get('/user/signup', function(req, res, next){
 });
 
 router.post('/user/signup', passport.authenticate('local.signup', {
-  successRedirect: '/profile',
-  failureRedirect: '/signup',
+  successRedirect: '/user/profile',
+  failureRedirect: '/user/signup',
   failureFlash: true // It'll flash 'email already in use' message.
 }));
 
