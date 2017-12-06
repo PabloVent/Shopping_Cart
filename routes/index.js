@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Product = require('../models/product');
 var csrf = require('csurf');
-vaf passport = require('passport');
+var passport = require('passport');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);

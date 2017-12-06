@@ -12,11 +12,11 @@ creates new users in passport.js file.
 */
 
 userSchema.methods.encryptPassword = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSalt(5), null)
+    return bcrypt.hashSync(password, bcrypt.genSalt(5), null);
 }
 
 // Check if the password matches the hatched password.
 userSchema.methods.validPassword = function(password){
     return bcrypt.compareSync(password, this.password);// 'this' corresponds to the current user's password, (line 7).
-
+}
 module.exports = mongoose.model('User', userSchema);
