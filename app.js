@@ -12,7 +12,6 @@ var flash = require('connect-flash');
 
 var routes = require('./routes/index');
 var app = express();
-//var userRoutes = require('./routes/user');
 
 mongoose.connect('localhost:27017/shopping');
 require('./config/passport');

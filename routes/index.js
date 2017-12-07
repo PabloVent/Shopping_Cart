@@ -30,8 +30,8 @@ router.post('/user/signup', passport.authenticate('local.signup', {
   failureFlash: true // It'll flash 'email already in use' message.
 }));
 
-router.get('/profile', function(req, res, next) {
+router.get('/user/profile', function(req, res, next) {
   res.render('user/profile');
-})
+});
 
 module.exports = router;

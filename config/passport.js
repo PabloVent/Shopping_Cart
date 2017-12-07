@@ -2,9 +2,11 @@ var passport = require('passport');
 var User = require('../models/user');
 var LocalStrategy = require('passport-local').Strategy;
 
-passport.serializeUser(function(user, done){
-    done(null, user.id); // serialize user by id whenever you want to store it in your session.
-}); // Tells passport how to store the user in the session.
+// passport.serializeUser(function(user, done){
+//     done(null, user.id); // serialize user by id whenever you want to store it in your session.
+// }); // Tells passport how to store the user in the session.
+
+passport.serializeUser(function(user, done){ done(null, user._id); // serialize user by id whenever you want to store it in your session. });
 
 passport.deserializeUser(function(id, done){
     User.findById(id, function(err, user){ // in mongoDB using mongoose; id is stored in the session.
@@ -17,7 +19,7 @@ passport.deserializeUser(function(id, done){
 passport.use('local.signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
-    passwordField: true
+    passReqToCallback: true
 }, function(req, email, password, done) {
     User.findOne({'email': email}, function(err, user){
         if(err){
@@ -37,4 +39,4 @@ passport.use('local.signup', new LocalStrategy({
         })
     });
 }));
-
+})
